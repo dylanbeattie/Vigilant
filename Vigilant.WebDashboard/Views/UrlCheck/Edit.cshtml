@@ -1,0 +1,85 @@
+﻿@model Vigilant.Entities.UrlCheck
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UrlCheck</legend>
+
+        @Html.HiddenFor(model => model.UrlCheckId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UseSsl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UseSsl)
+            @Html.ValidationMessageFor(model => model.UseSsl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Port)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Port)
+            @Html.ValidationMessageFor(model => model.Port)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RawHttpRequest)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.RawHttpRequest)
+            @Html.ValidationMessageFor(model => model.RawHttpRequest)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpectedResponse)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExpectedResponse)
+            @Html.ValidationMessageFor(model => model.ExpectedResponse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnstableThresholdInMilliseconds)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnstableThresholdInMilliseconds)
+            @Html.ValidationMessageFor(model => model.UnstableThresholdInMilliseconds)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CriticalThresholdInMilliseconds)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CriticalThresholdInMilliseconds)
+            @Html.ValidationMessageFor(model => model.CriticalThresholdInMilliseconds)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Vigilant.Entities.UrlCheck>
+@{
+	ViewBag.Title = "URL Checks";
+}
+<h2>Index</h2>
+@using (Html.BeginForm("CompareUrlChecks", "Report")) {
+	<table>
+		<tr>
+			<th>Check </th>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th></th>
+		</tr>
+		@foreach (var item in Model) {
+			<tr>
+				<td>
+					<input type="checkbox" name="urlCheckIds" id="include-@item.UrlCheckId" value="@item.UrlCheckId" />
+				</td>
+				<td><span title="@item.RawHttpRequest">@item.Name</span> </td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.UrlCheckId }) |
+					@Html.ActionLink("Details", "Details", new { id = item.UrlCheckId }) |
+					@Html.ActionLink("Delete", "Delete", new { id = item.UrlCheckId })
+				</td>
+			</tr>
+  }
+	</table>
+	<select name="interval">
+		<option value="15">Last 15 Minutes</option>
+		<option value="180">Last 3 Hours</option>
+		<option value="1440">Last 24 hours</option>
+	</select>
+	<input type="submit" value="Compare Selected" />
+	<p>
+		@Html.ActionLink("Create New", "Create")
+	</p>
+
+}

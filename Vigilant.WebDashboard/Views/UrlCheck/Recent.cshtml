@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Vigilant.WebDashboard.Models.EndpointAverage>
+
+@{
+    ViewBag.Title = "Recent";
+}
+
+<h2>Recent</h2>
+@foreach(var result in Model) {
+	@result.Endpoint.Nickname
+	@result.AverageResponseTime
+}

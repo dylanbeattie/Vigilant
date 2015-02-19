@@ -1,0 +1,67 @@
+﻿@model Vigilant.Entities.UrlCheck
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>UrlCheck</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UseSsl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UseSsl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Port)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Port)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RawHttpRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RawHttpRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExpectedResponse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpectedResponse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnstableThresholdInMilliseconds)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnstableThresholdInMilliseconds)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CriticalThresholdInMilliseconds)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CriticalThresholdInMilliseconds)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

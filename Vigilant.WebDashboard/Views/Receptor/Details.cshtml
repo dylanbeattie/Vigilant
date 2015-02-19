@@ -1,0 +1,64 @@
+﻿@model Vigilant.Entities.Receptor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Receptor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UrlCheck.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UrlCheck.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Endpoint.Nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Endpoint.Nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Frequency)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Frequency)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastTestedAtUtc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastTestedAtUtc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastCheckWasUnstable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastCheckWasUnstable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastCheckWasCritical)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastCheckWasCritical)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastResponseTimeInMilliseconds)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastResponseTimeInMilliseconds)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ReceptorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

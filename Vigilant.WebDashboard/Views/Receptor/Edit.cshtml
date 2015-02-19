@@ -1,0 +1,85 @@
+﻿@model Vigilant.Entities.Receptor
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Receptor</legend>
+
+        @Html.HiddenFor(model => model.ReceptorId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UrlCheckId, "UrlCheck")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UrlCheckId", String.Empty)
+            @Html.ValidationMessageFor(model => model.UrlCheckId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndpointId, "Endpoint")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EndpointId", String.Empty)
+            @Html.ValidationMessageFor(model => model.EndpointId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Frequency)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Frequency)
+            @Html.ValidationMessageFor(model => model.Frequency)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastTestedAtUtc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastTestedAtUtc)
+            @Html.ValidationMessageFor(model => model.LastTestedAtUtc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastCheckWasUnstable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastCheckWasUnstable)
+            @Html.ValidationMessageFor(model => model.LastCheckWasUnstable)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastCheckWasCritical)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastCheckWasCritical)
+            @Html.ValidationMessageFor(model => model.LastCheckWasCritical)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastResponseTimeInMilliseconds)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastResponseTimeInMilliseconds)
+            @Html.ValidationMessageFor(model => model.LastResponseTimeInMilliseconds)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

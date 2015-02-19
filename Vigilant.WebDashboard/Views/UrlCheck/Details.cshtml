@@ -1,0 +1,64 @@
+﻿@model Vigilant.Entities.UrlCheck
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UrlCheck</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UseSsl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UseSsl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Port)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Port)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RawHttpRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RawHttpRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExpectedResponse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpectedResponse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnstableThresholdInMilliseconds)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnstableThresholdInMilliseconds)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CriticalThresholdInMilliseconds)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CriticalThresholdInMilliseconds)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UrlCheckId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,29 @@
+﻿@model Vigilant.Entities.Endpoint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Endpoint</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IpAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IpAddress)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EndpointId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

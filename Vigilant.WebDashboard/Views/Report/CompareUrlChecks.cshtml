@@ -1,0 +1,36 @@
+﻿@model Dictionary<string, Dictionary<string, int>>
+@{
+	ViewBag.Title = "CompareUrlChecks";
+}
+<h2>CompareUrlChecks</h2>
+<div id="chart_div" style="height: 600px;">
+</div>
+<pre>
+</pre>
+@section scripts {
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script type="text/javascript">
+    	google.load("visualization", "1", { packages: ["corechart"] });
+    	google.setOnLoadCallback(drawChart);
+    	function drawChart() {
+    		var data = google.visualization.arrayToDataTable([
+['Response Time', '@Html.Raw(String.Join("', '", Model.Values.SelectMany(v => v.Keys).Distinct().ToArray()))']
+@foreach (var endpoint in Model.Keys) {
+<text>,['</text>@endpoint<text>',</text>@String.Join(", ", Model.Values.SelectMany(v => v.Keys).Distinct().Select(urlcheck => Model.ContainsKey(endpoint) && Model[endpoint].ContainsKey(urlcheck) ? Model[endpoint][urlcheck] : 0).Select(t => t.ToString()).ToArray()) <text>]</text>
+}
+        ]);
+
+    		var options = {
+    			title: 'Average Response Times',
+				chartArea: { height: 600 },
+    			vAxis: { title: 'Endpoint (Server)' }
+    		};
+
+    		var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    		chart.draw(data, options);
+    	}
+	</script>
+
+}
